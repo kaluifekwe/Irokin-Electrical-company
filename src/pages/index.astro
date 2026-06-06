@@ -3,14 +3,13 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="Engineering Services">
-  <!-- Dynamic Hero Section -->
+  <!-- Professional Static Hero Section -->
   <section class="relative bg-irokin-blue text-white overflow-hidden min-h-[60vh] flex items-center border-b-2 border-irokin-gold">
-    <!-- Background Carousel Images -->
-    <div id="hero-carousel" class="absolute inset-0 z-0">
-      <div class="carousel-item absolute inset-0 opacity-0 transition-opacity duration-1000 ease-in-out bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1555664424-778a1e5e1b48?auto=format&fit=crop&q=80');"></div>
-      <div class="carousel-item absolute inset-0 opacity-0 transition-opacity duration-1000 ease-in-out bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1503387762-592dea58ef21?auto=format&fit=crop&q=80');"></div>
-      <div class="carousel-item absolute inset-0 opacity-0 transition-opacity duration-1000 ease-in-out bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1509391366360-fe585c9233a5?auto=format&fit=crop&q=80');"></div>
-      <div class="carousel-item absolute inset-0 opacity-0 transition-opacity duration-1000 ease-in-out bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80');"></div>
+    <!-- Single High-Impact Professional Background -->
+    <div class="absolute inset-0 z-0">
+      <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1541888946425-d81bb1930060?auto=format&fit=crop&q=80');"></div>
+      <!-- Subtle Gradient for Depth -->
+      <div class="absolute inset-0 bg-gradient-to-r from-irokin-blue/60 to-transparent"></div>
     </div>
 
     <div class="container mx-auto px-6 relative z-10">
@@ -28,14 +27,6 @@ import Layout from '../layouts/Layout.astro';
         </div>
       </div>
     </div>
-
-    <!-- Progress Dots -->
-    <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-2">
-      <div class="progress-dot w-2 h-2 bg-irokin-gold rounded-full transition-all duration-300"></div>
-      <div class="progress-dot w-2 h-2 bg-white/30 rounded-full transition-all duration-300"></div>
-      <div class="progress-dot w-2 h-2 bg-white/30 rounded-full transition-all duration-300"></div>
-      <div class="progress-dot w-2 h-2 bg-white/30 rounded-full transition-all duration-300"></div>
-    </div>
   </section>
 
   <script>
@@ -48,10 +39,8 @@ import Layout from '../layouts/Layout.astro';
     
     let currentIndex = 0;
     const textElement = document.getElementById('flipping-text');
-    const carouselItems = document.querySelectorAll('.carousel-item');
-    const dots = document.querySelectorAll('.progress-dot');
 
-    function updateHero() {
+    function updateHeroText() {
       if (textElement) {
         textElement.style.opacity = '0';
         textElement.style.transform = 'translateY(10px)';
@@ -62,30 +51,11 @@ import Layout from '../layouts/Layout.astro';
           textElement.style.transform = 'translateY(0)';
         }, 500);
       }
-
-      carouselItems.forEach((item, index) => {
-        if (index === currentIndex) {
-          (item as HTMLElement).style.opacity = '1';
-        } else {
-          (item as HTMLElement).style.opacity = '0';
-        }
-      });
-
-      dots.forEach((dot, index) => {
-        if (index === currentIndex) {
-          (dot as HTMLElement).style.backgroundColor = '#FFC107';
-          (dot as HTMLElement).style.transform = 'scale(1.1)';
-        } else {
-          (dot as HTMLElement).style.backgroundColor = 'rgba(255, 255, 255, 0.3)';
-          (dot as HTMLElement).style.transform = 'scale(1)';
-        }
-      });
-
       currentIndex = (currentIndex + 1) % phrases.length;
     }
 
-    updateHero();
-    setInterval(updateHero, 4000);
+    updateHeroText();
+    setInterval(updateHeroText, 4000);
   </script>
 
   <!-- Services Overview -->
@@ -95,7 +65,6 @@ import Layout from '../layouts/Layout.astro';
         Core Services
       </h2>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <!-- Cards with reduced texture (thin borders, soft shadows) -->
         <div class="bg-white border border-gray-200 p-6 shadow-sm hover:shadow-md transition-all">
           <div class="text-irokin-gold mb-4">
              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
