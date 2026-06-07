@@ -28,6 +28,8 @@ const currentYear = new Date().getFullYear();
             <span class="text-[9px] text-gray-300 font-bold uppercase tracking-[0.2em] leading-none mt-1">ELECTRICAL & BUILDING</span>
           </div>
         </a>
+        
+        <!-- Desktop Navigation -->
         <div class="hidden md:flex space-x-8 items-center font-bold text-xs uppercase tracking-widest text-white">
           <a href="/" class="hover:text-irokin-gold transition-colors active:text-irokin-gold">Home</a>
           <a href="/about" class="hover:text-irokin-gold transition-colors active:text-irokin-gold">About</a>
@@ -38,13 +40,28 @@ const currentYear = new Date().getFullYear();
             Get a Quote
           </a>
         </div>
-        <!-- Mobile Toggle (Simplified) -->
-        <button class="md:hidden text-irokin-gold">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+
+        <!-- Mobile Toggle Button -->
+        <button id="mobile-menu-toggle" class="md:hidden text-irokin-gold focus:outline-none" aria-label="Toggle Menu">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
           </svg>
         </button>
       </nav>
+
+      <!-- Mobile Menu Overlay -->
+      <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-irokin-blue border-b border-irokin-gold/20 shadow-2xl md:hidden transition-all duration-300 ease-in-out">
+        <div class="flex flex-col p-8 space-y-6 text-center font-bold text-sm uppercase tracking-[0.2em]">
+          <a href="/" class="text-white hover:text-irokin-gold py-2 transition-colors border-b border-white/5">Home</a>
+          <a href="/about" class="text-white hover:text-irokin-gold py-2 transition-colors border-b border-white/5">About</a>
+          <a href="/services" class="text-white hover:text-irokin-gold py-2 transition-colors border-b border-white/5">Services</a>
+          <a href="/projects" class="text-white hover:text-irokin-gold py-2 transition-colors border-b border-white/5">Projects</a>
+          <a href="/contact" class="text-white hover:text-irokin-gold py-2 transition-colors border-b border-white/5">Contact</a>
+          <a href="/contact" class="bg-irokin-gold text-irokin-blue px-6 py-4 font-black mt-4 shadow-lg active:scale-95 transition-transform">
+            Get a Quote
+          </a>
+        </div>
+      </div>
     </header>
 
     <main class="flex-grow">
@@ -101,5 +118,37 @@ const currentYear = new Date().getFullYear();
         <p>&copy; {currentYear} Irokin Electricals. All rights reserved.</p>
       </div>
     </footer>
+
+    <!-- Mobile Menu Logic -->
+    <script>
+      const toggleBtn = document.getElementById('mobile-menu-toggle');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const menuIcon = document.getElementById('menu-icon');
+
+      if (toggleBtn && mobileMenu && menuIcon) {
+        toggleBtn.addEventListener('click', () => {
+          const isHidden = mobileMenu.classList.contains('hidden');
+          
+          if (isHidden) {
+            mobileMenu.classList.remove('hidden');
+            // Change to close icon
+            menuIcon.setAttribute('d', 'M6 18L18 6M6 6l12 12');
+          } else {
+            mobileMenu.classList.add('hidden');
+            // Change back to hamburger icon
+            menuIcon.setAttribute('d', 'M4 6h16M4 12h16m-7 6h7');
+          }
+        });
+
+        // Close menu when clicking a link
+        const navLinks = mobileMenu.querySelectorAll('a');
+        navLinks.forEach(link => {
+          link.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+            menuIcon.setAttribute('d', 'M4 6h16M4 12h16m-7 6h7');
+          });
+        });
+      }
+    </script>
   </body>
 </html>
