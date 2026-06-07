@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        'irokin-blue': '#0A192F',
+        'irokin-blue': '#1A2E45',
         'irokin-gold': '#FFC107',
       },
       fontFamily: {

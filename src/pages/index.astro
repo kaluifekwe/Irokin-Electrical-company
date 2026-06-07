@@ -3,25 +3,28 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="Engineering Services">
-  <!-- Professional Static Hero Section -->
-  <section class="relative bg-irokin-blue text-white overflow-hidden min-h-[60vh] flex items-center border-b-2 border-irokin-gold">
-    <!-- Single High-Impact Professional Background -->
-    <div class="absolute inset-0 z-0">
-      <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1541888946425-d81bb1930060?auto=format&fit=crop&q=80');"></div>
-      <!-- Subtle Gradient for Depth -->
-      <div class="absolute inset-0 bg-gradient-to-r from-irokin-blue/60 to-transparent"></div>
+  <!-- Dynamic Hero Section with Custom Images -->
+  <section class="relative bg-irokin-blue text-white overflow-hidden min-h-[60vh] flex items-center border-b-[1px] border-irokin-gold/30">
+    <!-- Background Carousel Images -->
+    <div id="hero-carousel" class="absolute inset-0 z-0">
+      <div class="carousel-item absolute inset-0 opacity-0 transition-opacity duration-1000 ease-in-out bg-cover bg-center" style="background-image: url('/images/hero-1.jpg');"></div>
+      <div class="carousel-item absolute inset-0 opacity-0 transition-opacity duration-1000 ease-in-out bg-cover bg-center" style="background-image: url('/images/hero-2.jpg');"></div>
+      <div class="carousel-item absolute inset-0 opacity-0 transition-opacity duration-1000 ease-in-out bg-cover bg-center" style="background-image: url('/images/hero-3.jpg');"></div>
     </div>
+
+    <!-- Light Gradient Overlay for readability -->
+    <div class="absolute inset-0 bg-gradient-to-r from-irokin-blue/40 to-transparent z-[1]"></div>
 
     <div class="container mx-auto px-6 relative z-10">
       <div class="max-w-2xl">
-        <h1 class="text-3xl md:text-4xl font-bold uppercase tracking-tight mb-8 drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
+        <h1 class="text-3xl md:text-4xl font-bold uppercase tracking-tight mb-8 drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]">
           <span id="flipping-text" class="text-irokin-gold block transition-all duration-500 transform translate-y-0 opacity-100 italic">BUILD IT SOLID</span>
         </h1>
         <div class="flex flex-wrap gap-4">
-          <a href="/contact" class="bg-irokin-gold text-irokin-blue px-8 py-3 font-bold uppercase tracking-wider hover:bg-yellow-400 transition-all shadow-md text-xs">
+          <a href="/contact" class="bg-irokin-gold text-irokin-blue px-6 py-2 font-bold uppercase tracking-wider hover:bg-yellow-400 transition-all text-xs border-[1px] border-irokin-gold/20 shadow-sm">
             Consultation
           </a>
-          <a href="/services" class="border-2 border-white text-white px-8 py-3 font-bold uppercase tracking-wider hover:bg-white hover:text-irokin-blue transition-all text-xs shadow-md">
+          <a href="/services" class="border-[1px] border-white/40 text-white px-6 py-2 font-bold uppercase tracking-wider hover:bg-white hover:text-irokin-blue transition-all text-xs shadow-sm">
             Services
           </a>
         </div>
@@ -39,70 +42,82 @@ import Layout from '../layouts/Layout.astro';
     
     let currentIndex = 0;
     const textElement = document.getElementById('flipping-text');
+    const carouselItems = document.querySelectorAll('.carousel-item');
 
-    function updateHeroText() {
+    function updateHero() {
+      // Update Text
       if (textElement) {
         textElement.style.opacity = '0';
         textElement.style.transform = 'translateY(10px)';
         
         setTimeout(() => {
-          textElement.textContent = phrases[currentIndex];
+          textElement.textContent = phrases[currentIndex % phrases.length];
           textElement.style.opacity = '1';
           textElement.style.transform = 'translateY(0)';
         }, 500);
       }
-      currentIndex = (currentIndex + 1) % phrases.length;
+
+      // Update Background
+      carouselItems.forEach((item, index) => {
+        if (index === currentIndex % carouselItems.length) {
+          (item as HTMLElement).style.opacity = '1';
+        } else {
+          (item as HTMLElement).style.opacity = '0';
+        }
+      });
+
+      currentIndex++;
     }
 
-    updateHeroText();
-    setInterval(updateHeroText, 4000);
+    updateHero();
+    setInterval(updateHero, 4000);
   </script>
 
   <!-- Services Overview -->
-  <section class="py-16 px-6 bg-slate-50">
+  <section class="py-12 px-6 bg-slate-50/50">
     <div class="container mx-auto">
-      <h2 class="text-2xl font-bold mb-12 text-irokin-blue border-l-4 border-irokin-gold pl-3 uppercase tracking-tight">
+      <h2 class="text-xl font-bold mb-10 text-irokin-blue border-l-2 border-irokin-gold pl-3 uppercase tracking-wide">
         Core Services
       </h2>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div class="bg-white border border-gray-200 p-6 shadow-sm hover:shadow-md transition-all">
-          <div class="text-irokin-gold mb-4">
-             <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+        <div class="bg-white border-[1px] border-gray-100 p-6 shadow-sm hover:shadow-md transition-all">
+          <div class="text-irokin-gold mb-3">
+             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
              </svg>
           </div>
-          <h3 class="text-lg font-bold mb-2 uppercase">Construction</h3>
-          <p class="text-gray-500 text-xs font-body">Structural engineering and integrated builds.</p>
+          <h3 class="text-sm font-bold mb-2 uppercase">Construction</h3>
+          <p class="text-gray-400 text-[10px] font-body">Structural engineering and integrated builds.</p>
         </div>
 
-        <div class="bg-white border border-gray-200 p-6 shadow-sm hover:shadow-md transition-all">
-          <div class="text-irokin-gold mb-4">
-             <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+        <div class="bg-white border-[1px] border-gray-100 p-6 shadow-sm hover:shadow-md transition-all">
+          <div class="text-irokin-gold mb-3">
+             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z" />
              </svg>
           </div>
-          <h3 class="text-lg font-bold mb-2 uppercase">Electrical</h3>
-          <p class="text-gray-500 text-xs font-body">Smart wiring and industrial automation.</p>
+          <h3 class="text-sm font-bold mb-2 uppercase">Electrical</h3>
+          <p class="text-gray-400 text-[10px] font-body">Smart wiring and industrial automation.</p>
         </div>
 
-        <div class="bg-white border border-gray-200 p-6 shadow-sm hover:shadow-md transition-all">
-          <div class="text-irokin-gold mb-4">
-             <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 011-1h1a2 2 0 100-4H7a1 1 0 01-1-1V7a1 1 0 011-1h3a1 1 0 011 1V4z" />
+        <div class="bg-white border-[1px] border-gray-100 p-6 shadow-sm hover:shadow-md transition-all">
+          <div class="text-irokin-gold mb-3">
+             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 011-1h1a2 2 0 100-4H7a1 1 0 01-1-1V7a1 1 0 011-1h3a1 1 0 011 1V4z" />
              </svg>
           </div>
-          <h3 class="text-lg font-bold mb-2 uppercase">Repairs</h3>
-          <p class="text-gray-500 text-xs font-body">Component-level precision diagnostics.</p>
+          <h3 class="text-sm font-bold mb-2 uppercase">Repairs</h3>
+          <p class="text-gray-400 text-[10px] font-body">Component-level precision diagnostics.</p>
         </div>
 
-        <div class="bg-white border border-gray-200 p-6 shadow-sm hover:shadow-md transition-all">
-          <div class="text-irokin-gold mb-4">
-             <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
+        <div class="bg-white border-[1px] border-gray-100 p-6 shadow-sm hover:shadow-md transition-all">
+          <div class="text-irokin-gold mb-3">
+             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
              </svg>
           </div>
-          <h3 class="text-lg font-bold mb-2 uppercase">Finishing</h3>
-          <p class="text-gray-500 text-xs font-body">Premium POP and interior spatial planning.</p>
+          <h3 class="text-sm font-bold mb-2 uppercase">Finishing</h3>
+          <p class="text-gray-400 text-[10px] font-body">Premium POP and interior spatial planning.</p>
         </div>
       </div>
     </div>
@@ -111,37 +126,37 @@ import Layout from '../layouts/Layout.astro';
   <!-- Core Values Detail -->
   <section class="py-16 px-6 bg-white">
     <div class="container mx-auto">
-       <div class="flex flex-col md:flex-row items-center gap-12">
+       <div class="flex flex-col md:flex-row items-center gap-10">
           <div class="md:w-1/2">
-             <h2 class="text-2xl font-bold mb-8 text-irokin-blue uppercase tracking-tight">Foundations</h2>
-             <div class="space-y-4">
-                <div class="flex items-center gap-4">
-                   <span class="w-8 h-[2px] bg-irokin-gold"></span>
-                   <p class="text-xs font-bold uppercase text-gray-700">Safety & Integrity First</p>
+             <h2 class="text-xl font-bold mb-6 text-irokin-blue uppercase tracking-tight">Foundations</h2>
+             <div class="space-y-3">
+                <div class="flex items-center gap-3">
+                   <span class="w-6 h-[1px] bg-irokin-gold"></span>
+                   <p class="text-[10px] font-bold uppercase text-gray-500">Safety & Integrity First</p>
                 </div>
-                <div class="flex items-center gap-4">
-                   <span class="w-8 h-[2px] bg-irokin-gold"></span>
-                   <p class="text-xs font-bold uppercase text-gray-700">Industrial-Grade Quality</p>
+                <div class="flex items-center gap-3">
+                   <span class="w-6 h-[1px] bg-irokin-gold"></span>
+                   <p class="text-[10px] font-bold uppercase text-gray-500">Industrial-Grade Quality</p>
                 </div>
-                <div class="flex items-center gap-4">
-                   <span class="w-8 h-[2px] bg-irokin-gold"></span>
-                   <p class="text-xs font-bold uppercase text-gray-700">Smart System Innovation</p>
+                <div class="flex items-center gap-3">
+                   <span class="w-6 h-[1px] bg-irokin-gold"></span>
+                   <p class="text-[10px] font-bold uppercase text-gray-500">Smart System Innovation</p>
                 </div>
              </div>
           </div>
-          <div class="md:w-1/2 bg-irokin-blue p-8 text-white border-l-4 border-irokin-gold shadow-lg">
-             <p class="text-xl font-bold italic mb-4 leading-snug">"Integrated engineering excellence for Abia State."</p>
-             <p class="text-irokin-gold text-sm font-bold">— Engr. Okoji Joseph Okezie</p>
+          <div class="md:w-1/2 bg-irokin-blue p-8 text-white border-l-[1px] border-irokin-gold/40 shadow-sm">
+             <p class="text-lg font-bold italic mb-3 leading-snug">"Integrated engineering excellence for Abia State."</p>
+             <p class="text-irokin-gold text-xs font-bold">— Engr. Okoji Joseph Okezie</p>
           </div>
        </div>
     </div>
   </section>
 
   <!-- Compact CTA Banner -->
-  <section class="bg-irokin-gold py-12 px-6 text-center">
+  <section class="bg-irokin-gold py-10 px-6 text-center">
      <div class="container mx-auto">
-        <h2 class="text-2xl font-bold text-irokin-blue mb-6 uppercase tracking-tight">Ready for a professional build?</h2>
-        <a href="/contact" class="inline-block bg-irokin-blue text-white px-10 py-3 font-bold uppercase tracking-wider hover:bg-slate-800 transition-colors text-xs">
+        <h2 class="text-xl font-bold text-irokin-blue mb-5 uppercase tracking-tight">Ready for a professional build?</h2>
+        <a href="/contact" class="inline-block bg-irokin-blue text-white px-8 py-2 font-bold uppercase tracking-wider hover:bg-slate-800 transition-colors text-[10px]">
            Get Started
         </a>
      </div>

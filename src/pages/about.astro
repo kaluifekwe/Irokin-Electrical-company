@@ -2,92 +2,84 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="About Our Team">
+<Layout title="About Irokin">
   <!-- Page Header -->
-  <section class="bg-irokin-blue text-white py-20 px-6 border-b-8 border-irokin-gold">
+  <section class="bg-irokin-blue text-white py-20 px-6 border-b-2 border-irokin-gold">
     <div class="container mx-auto">
-      <h1 class="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-4">About Irokin</h1>
-      <p class="text-gray-300 text-xl max-w-3xl">Built on integrity, wired for excellence, and committed to the development of Abia State.</p>
+      <h1 class="text-3xl md:text-5xl font-black uppercase tracking-tighter mb-4">Our Story</h1>
+      <p class="text-gray-300 text-lg md:text-xl max-w-3xl">Turning building concepts into safe, functional, and beautiful spaces.</p>
     </div>
   </section>
 
-  <!-- Leadership Section -->
-  <section class="py-24 px-6 bg-white">
+  <!-- Corporate Narrative Section -->
+  <section class="py-20 px-6 bg-white">
     <div class="container mx-auto">
-      <div class="flex flex-col md:flex-row gap-16 items-center">
-        <div class="md:w-1/3">
-          <div class="bg-slate-100 aspect-[3/4] border-4 border-irokin-blue shadow-[16px_16px_0px_0px_rgba(255,193,7,1)] flex items-center justify-center">
-             <span class="text-irokin-blue font-black uppercase tracking-widest text-center px-4">CEO Portrait Placeholder</span>
+      <div class="max-w-4xl mx-auto space-y-16">
+        
+        <!-- Integrated Expertise -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 class="text-2xl font-black text-irokin-blue uppercase tracking-tight mb-6 border-l-4 border-irokin-gold pl-4">Integrated Engineering</h2>
+            <p class="text-gray-700 font-body leading-relaxed mb-6">
+              Irokin Electrical and Building Construction is an integrated building and services company based in Abia State, Nigeria. We specialize in turning building concepts into safe, functional, and beautiful spaces — from start to finish.
+            </p>
+            <p class="text-gray-700 font-body leading-relaxed">
+              With years of hands-on experience, Irokin handles the full project cycle under one roof. This integrated approach saves our clients time and money while removing the stress of managing multiple contractors.
+            </p>
+          </div>
+          <div class="bg-slate-50 p-8 border border-gray-200 shadow-sm">
+            <h3 class="text-irokin-blue font-bold uppercase text-sm mb-4 tracking-widest italic">The Irokin Advantage</h3>
+            <ul class="space-y-3 font-body text-xs font-bold text-gray-600">
+              <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 bg-irokin-gold"></span> Solid Building Construction</li>
+              <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 bg-irokin-gold"></span> Professional Electrical Installations</li>
+              <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 bg-irokin-gold"></span> Skilled Electronics Repairs</li>
+              <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 bg-irokin-gold"></span> Modern Interior Finishing</li>
+            </ul>
           </div>
         </div>
-        <div class="md:w-2/3">
-          <h2 class="text-3xl font-black text-irokin-blue uppercase tracking-tighter mb-6 border-l-8 border-irokin-gold pl-4">Leadership & Vision</h2>
-          <h3 class="text-xl font-bold text-irokin-blue mb-4">Engr. Okoji Joseph Okezie <span class="text-gray-500 font-normal">| CEO</span></h3>
-          <p class="text-gray-700 font-body mb-6 leading-relaxed">
-            Under the leadership of Engr. Okoji Joseph Okezie, Irokin Electrical & Building Construction Engineering Services has grown into a beacon of technical excellence in Abia State. With a deep background in integrated engineering, Engr. Okoji ensures that every project—from a simple electronics repair to complex industrial automation—is executed with uncompromising precision.
-          </p>
-          <p class="text-gray-700 font-body mb-8 leading-relaxed">
-            Our vision is to be the primary partner for local and industrial infrastructure development, providing smart, safe, and sustainable solutions that empower businesses and homes alike.
-          </p>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div class="p-6 bg-slate-50 border-t-4 border-irokin-blue">
-              <h4 class="font-black uppercase text-irokin-blue mb-2 italic">Our Mission</h4>
-              <p class="text-sm text-gray-600 font-body">To deliver high-quality, integrated engineering services that prioritize safety, durability, and technological innovation.</p>
+
+        <!-- Team & Standards -->
+        <div class="border-t border-gray-100 pt-16">
+          <h2 class="text-2xl font-black text-irokin-blue uppercase tracking-tight mb-8 text-center">Professional Standards</h2>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+            <div class="p-6 bg-slate-50 border border-gray-200 shadow-sm">
+              <h4 class="font-black uppercase text-irokin-blue mb-2 text-sm italic">Our Team</h4>
+              <p class="text-xs text-gray-600 font-body leading-relaxed">Qualified builders, certified electricians, and electronics technicians committed to honest service.</p>
             </div>
-            <div class="p-6 bg-slate-50 border-t-4 border-irokin-gold">
-              <h4 class="font-black uppercase text-irokin-blue mb-2 italic">Registration</h4>
-              <p class="text-sm text-gray-600 font-body">Irokin is a fully registered corporate entity in Nigeria (RC: 9500063), adhering to all national engineering and building standards.</p>
+            <div class="p-6 bg-slate-50 border border-gray-200 shadow-sm">
+              <h4 class="font-black uppercase text-irokin-blue mb-2 text-sm italic">Excellence</h4>
+              <p class="text-xs text-gray-600 font-body leading-relaxed">We deliver projects that meet Nigerian building standards and exceed client expectations.</p>
+            </div>
+            <div class="p-6 bg-slate-50 border border-gray-200 shadow-sm">
+              <h4 class="font-black uppercase text-irokin-blue mb-2 text-sm italic">Versatility</h4>
+              <p class="text-xs text-gray-600 font-body leading-relaxed">Handling residential homes, office complexes, shops, or industrial facilities with ease.</p>
             </div>
           </div>
         </div>
+
+        <!-- The Promise -->
+        <div class="bg-irokin-blue text-white p-10 md:p-16 border-l-4 border-irokin-gold shadow-lg">
+          <p class="text-lg md:text-2xl font-bold italic mb-8 leading-relaxed">
+            "At Irokin, we believe a strong building needs safe wiring, reliable systems, and a finish that reflects your style."
+          </p>
+          <div class="flex flex-wrap gap-4 items-center">
+             <span class="text-irokin-gold font-black uppercase tracking-widest text-sm">Our Simple Promise:</span>
+             <span class="text-xs font-bold uppercase tracking-tighter border-b border-irokin-gold pb-1">Build Solid</span>
+             <span class="text-xs font-bold uppercase tracking-tighter border-b border-irokin-gold pb-1">Wire Safe</span>
+             <span class="text-xs font-bold uppercase tracking-tighter border-b border-irokin-gold pb-1">Repair Right</span>
+             <span class="text-xs font-bold uppercase tracking-tighter border-b border-irokin-gold pb-1">Finish Fine</span>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- Core Values Detail -->
-  <section class="py-24 px-6 bg-slate-900 text-white border-y-8 border-irokin-gold">
+  <!-- Final CTA -->
+  <section class="py-20 px-6 bg-slate-50 text-center border-t border-gray-100">
     <div class="container mx-auto">
-      <h2 class="text-3xl font-black uppercase tracking-tighter mb-16 text-center text-irokin-gold">The Irokin Standard</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-        <!-- Safety -->
-        <div class="text-center">
-          <div class="w-16 h-16 bg-irokin-gold text-irokin-blue rounded-full flex items-center justify-center mx-auto mb-6">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-            </svg>
-          </div>
-          <h4 class="text-xl font-black uppercase mb-4">Safety First</h4>
-          <p class="text-gray-300 text-sm font-body">Whether it's structural reinforcement or high-voltage wiring, we never compromise on the safety of our clients and our crew.</p>
-        </div>
-        <!-- Quality -->
-        <div class="text-center">
-          <div class="w-16 h-16 bg-irokin-gold text-irokin-blue rounded-full flex items-center justify-center mx-auto mb-6">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-7.714 2.143L11 21l-2.286-6.857L1 12l7.714-2.143L11 3z" />
-            </svg>
-          </div>
-          <h4 class="text-xl font-black uppercase mb-4">Unmatched Quality</h4>
-          <p class="text-gray-300 text-sm font-body">We use industrial-grade materials and follow master-level craftsmanship standards to ensure longevity and technical authority.</p>
-        </div>
-        <!-- Integrity -->
-        <div class="text-center">
-          <div class="w-16 h-16 bg-irokin-gold text-irokin-blue rounded-full flex items-center justify-center mx-auto mb-6">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-          </div>
-          <h4 class="text-xl font-black uppercase mb-4">Local Integrity</h4>
-          <p class="text-gray-300 text-sm font-body">Deeply rooted in Bende, Abia State, we are committed to honest pricing, transparent timelines, and community development.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="py-24 px-6 bg-white text-center">
-    <div class="container mx-auto">
-      <h2 class="text-3xl font-black text-irokin-blue uppercase tracking-tighter mb-8">Work With a Professional Team</h2>
-      <a href="/contact" class="inline-block bg-irokin-gold text-irokin-blue px-12 py-4 font-black uppercase tracking-widest hover:bg-yellow-400 transition-colors">
+      <h2 class="text-2xl font-black text-irokin-blue uppercase tracking-tight mb-8">Work With an Integrated Engineering Team</h2>
+      <a href="/contact" class="inline-block bg-irokin-gold text-irokin-blue px-10 py-3 font-black uppercase tracking-wider hover:bg-yellow-400 transition-all text-xs shadow-md">
         Request a Consultation
       </a>
     </div>
